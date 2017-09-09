@@ -3,10 +3,11 @@
 #include <unistd.h>
 
 #define READTIMEOUTSEC 3
+#define MEANVALS 20
 //#define DEBUG
 
 long double elapsedTime;
-double elaTime[10];
+double elaTime[MEANVALS];
 
 static char BMP[] = {0x42, 0x4d};
 static char PNG[] = {0x89, 0x50, 0x4e, 0x47};
@@ -17,9 +18,9 @@ double meanVal()	//Gleitender Mittelwert
 {
 	int j;
 	double res = 0;
-	for(j = 0; j < 10; j++)
+	for(j = 0; j < MEANVALS; j++)
 		res+=elaTime[j];
-	return res/10;
+	return res/MEANVALS;
 }
 
 /// Reads until it discovers the first matching char. Calls checkWholeIdentifier afterwards.
@@ -92,7 +93,7 @@ int findNextStart()
             gettimeofday(&now, NULL);
             if((now.tv_sec - lastSuccessfulRead.tv_sec) >= READTIMEOUTSEC)
             {
-                printf("\nInput interupted! %d sec timout reached!\n",READTIMEOUTSEC);
+                printf("\nInput interrupted! %d sec timout reached!\n",READTIMEOUTSEC);
                 break;
             }
 
