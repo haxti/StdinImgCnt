@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 3.0)
-project(StdinbmpCnt)
+project(StdinImgCnt)
 
 set(SOURCE_FILES main.c)
-add_executable(StdinbmpCnt ${SOURCE_FILES})
+add_executable(StdinImgCnt ${SOURCE_FILES})
