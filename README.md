@@ -1,11 +1,11 @@
 # StdinImgCnt
-##Info
+## Info
 This is a little tool to count imaged piped into it.
 It also shows the elapsed time as well as the FPS between frames and
 calculates mean values over 20 frames (changeable via define).
 It stops reading after a 3 second timeout (also changeable via define).
 
-##Usage
+## Usage
 ```
 cat 1.bmp 2.bmp 3.bmp | ./StdinImgCnt
 ```
@@ -16,7 +16,7 @@ cat 1.png 2.png 3.png | ./StdinImgCnt
 seq 1 10000 | xargs -Inone cat foo.bmp | ./StdinImgCnt 
 ```
 
-##Output
+## Output
 ### Bash
 ```
 Format identifier: BM
@@ -33,7 +33,7 @@ Frame, diff. Time, FPS
 ....
 ```
 
-##Quirks
+## Quirks
 <li>First frame is lost to detect the format
 <li>There are some spikes in the graphs. I don't exactly know why.
 <li><i>I'm sure there are many more ...</i>
